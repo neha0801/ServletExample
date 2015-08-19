@@ -1,7 +1,6 @@
 
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.*;
 import java.util.Properties;
 
@@ -48,11 +47,11 @@ public class HelloWorld extends HttpServlet {
              Statement st=con.createStatement();
              System.out.println("connection established successfully...!!");     
  
-             ResultSet rs=st.executeQuery("Select * from Demo_Customers where CUSTOMER_ID=2");
- 
+             ResultSet rs=st.executeQuery("Select * from Demo_Customers where CUSTOMER_ID = 2");
+             
+
              rs.next();
-           	 name = rs.getString("CUST_FIRST_NAME") + " " + rs.getString("CUST_LAST_NAME");
-           	 System.out.println(name);
+             name = rs.getString("CUST_FIRST_NAME") + " " + rs.getString("CUST_LAST_NAME");
              
         }
         catch (Exception e){

@@ -15,9 +15,9 @@
 <style>
 body {
 	text-align: center;
-	font-family: "Edwardian Script ITC";
-	font-size: 80px;
-	background-color: #a6d2d2;
+	font-family: "Bookman Old Style";
+	font-size: 15px;
+	background-color: #408080;
 }
 </style>
 </head>
