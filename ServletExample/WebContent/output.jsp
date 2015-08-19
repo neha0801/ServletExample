@@ -18,6 +18,11 @@ body {
 	font-family: "Bookman Old Style";
 	font-size: 15px;
 	background-color: #408080;
+	color:white;
+}
+table{
+	border-color:#00ffff;
+	border-colortd: black;
 }
 </style>
 </head>

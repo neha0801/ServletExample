@@ -48,16 +48,18 @@ public class LoopingDatabase extends HttpServlet {
 			System.out.println("connection established successfully...!!");
 
 			ResultSet rs = st.executeQuery("Select * from Demo_Customers");
-			name += "<table border=1 width = 30%>";
-			name += "<tr><td><b> Customer ID</b> </td><td> <b>FIRST NAME</b> </td><td> <b> LAST NAME </b></td><td>";
+			name+="<br></br>";
+			name += "<table border=2 width = 50% background-color:Light grey>"; 
+			name += "<tr><td><b> Customer ID</b> </td><td> <b>FIRST NAME</b> </td><td> <b> LAST NAME </b></td><tr>";
 			while (rs.next()) {
 				name += ("<tr><td>" + rs.getInt(1) + "</td><td>"
 						+ rs.getString("CUST_FIRST_NAME") + "</td><td>"
-						+ rs.getString("CUST_LAST_NAME") + "</td><td>");
+						+ rs.getString("CUST_LAST_NAME") + "</td></tr>");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		name +="</table>";
 		request.setAttribute("message", name);
 		getServletContext().getRequestDispatcher("/output.jsp").forward(
 				request, response);
