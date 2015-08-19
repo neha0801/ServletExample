@@ -38,6 +38,7 @@ public class LoopingDatabase extends HttpServlet {
 
 		String url = "jdbc:oracle:thin:testuser/password@localhost";
 		String name = "";
+		
 		Properties props = new Properties();
 		props.setProperty("user", "testdb");
 		props.setProperty("password", "password");
@@ -52,14 +53,13 @@ public class LoopingDatabase extends HttpServlet {
 			name += "<table border=2 width = 50% background-color:Light grey>"; 
 			name += "<tr><td><b> Customer ID</b> </td><td> <b>FIRST NAME</b> </td><td> <b> LAST NAME </b></td><tr>";
 			while (rs.next()) {
-				name += ("<tr><td>" + rs.getInt(1) + "</td><td>"
-						+ rs.getString("CUST_FIRST_NAME") + "</td><td>"
+				name += ("<tr><td>" + rs.getInt(1) + "</td><td><a href=Details?customerId=" +rs.getInt(1) + ">"
+						+ rs.getString("CUST_FIRST_NAME") + "</a></td><td>"
 						+ rs.getString("CUST_LAST_NAME") + "</td></tr>");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		name +="</table>";
 		request.setAttribute("message", name);
 		getServletContext().getRequestDispatcher("/output.jsp").forward(
 				request, response);
